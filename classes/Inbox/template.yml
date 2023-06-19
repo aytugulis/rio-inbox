@@ -6,3 +6,7 @@ methods:
     queryStringModel: getByUserIdModel
     type: READ
     handler: index.getByUserId
+  - method: readMessage
+    queryStringModel: readMessageModel
+    type: WRITE
+    handler: index.readMessage

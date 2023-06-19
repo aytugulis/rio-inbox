@@ -80,11 +80,7 @@ export async function getByUserId(data: Data): Promise<StepResponse> {
 
   const userIndex = users.findIndex((user) => user.id === userId);
   if (userIndex === -1) {
-    data.response = {
-      statusCode: 404,
-      body: { message: "User not found" },
-    };
-    return data;
+    throw new Error("User not found");
   }
 
   const inbox = messages.filter((message) => message.userId === userId);
@@ -92,6 +88,27 @@ export async function getByUserId(data: Data): Promise<StepResponse> {
   data.response = {
     statusCode: 200,
     body: { inbox },
+  };
+  return data;
+}
+
+export async function readMessage(data: Data): Promise<StepResponse> {
+  const { messageId } = data.request.queryStringParams;
+  const { messages } = data.state.public;
+
+  const messageIndex = messages.findIndex(
+    (message) => message.id === messageId
+  );
+  if (messageIndex === -1) {
+    throw new Error("Message not found");
+  }
+
+  const message = messages[messageIndex];
+  message.read = true;
+
+  data.response = {
+    statusCode: 200,
+    body: { message },
   };
   return data;
 }
