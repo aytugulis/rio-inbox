@@ -1,0 +1,11 @@
+{
+  "title": "getByUserIdModel",
+  "type": "object",
+  "required": ["userId"],
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "User id"
+    }
+  }
+}

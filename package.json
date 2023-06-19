@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc -b .",
-    "deploy": "export RIO_CLI_URL=<YOUR_CLI_URL> && rio d --project-id <YOUR_PROJECT_İD> --profile <YOUR_PROFILE>"
+    "deploy": "export RIO_CLI_URL=<YOUR_CLI_URL> && rio d --project-id <YOUR_PROJECT_ID> --profile <YOUR_PROFILE>"
   },
   "keywords": [],
   "author": "",
